@@ -6,7 +6,7 @@
 
 ---
 
-## 💻 Fitur
+## 💻 Feature
 
 - Tambah mahasiswa  
 - Lihat semua mahasiswa  
@@ -18,7 +18,7 @@
 
 ---
 
-## 📂 Setup Project
+## 📂 How to Project Setup
 
 -git clone https://github.com/AzharAndriann/Data-Mahasiswa.git
 -cd Data-Mahasiswa
