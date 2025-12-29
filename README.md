@@ -20,8 +20,8 @@
 
 ## 📂 How to Project Setup
 
--git clone https://github.com/AzharAndriann/Data-Mahasiswa.git
--cd Data-Mahasiswa
--pip install -r requirements.txt
--python infrastructure/db_setup.py
--python main.py
+- git clone https://github.com/AzharAndriann/Data-Mahasiswa.git
+- cd Data-Mahasiswa
+- pip install -r requirements.txt
+- python infrastructure/db_setup.py
+- python main.py
