@@ -1,6 +1,8 @@
 from application.mahasiswa_service import MahasiswaService
 from domain.mahasiswa import Mahasiswa
 from infrastructure.mysql_repository import MySQLRepository
+from tabulate import tabulate
+
 
 def menu():
     repo = MySQLRepository()
@@ -25,8 +27,19 @@ def menu():
             print("✅ Mahasiswa berhasil ditambahkan")
 
         elif choice == "2":
-            for m in service.get_all():
-                print(m)
+            mahasiswa_list = service.get_all()
+
+            if not mahasiswa_list:
+                print("📭 Data mahasiswa kosong")
+                continue
+
+            table = [
+                [m.nim, m.nama, m.jurusan, m.angkatan]
+                for m in mahasiswa_list
+            ]
+
+            headers = ["NIM", "Nama", "Jurusan", "Angkatan"]
+            print(tabulate(table, headers=headers, tablefmt="grid"))
 
         elif choice == "3":
             nim = input("NIM mahasiswa yang ingin diupdate: ").strip()
@@ -50,6 +63,7 @@ def menu():
 
         else:
             print("❌ Pilihan tidak valid")
+
 
 if __name__ == "__main__":
     menu()
