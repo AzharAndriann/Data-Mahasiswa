@@ -10,8 +10,12 @@ class MySQLRepository:
     def __init__(self):
         self.host = os.getenv("DB_HOST", "localhost")
         self.user = os.getenv("DB_USER", "root")
+<<<<<<< HEAD
         self.password = os.getenv("DB_PASSWORD")
         self.port = 3308
+=======
+        self.password = os.getenv("DB_PASSWORD", "")
+>>>>>>> 64982597e617bfafad7c3aa6af70826ddbd0afe7
         self.database = os.getenv("DB_NAME", "mahasiswa_app")
         self.conn: Optional[mysql.connector.connection_cext.CMySQLConnection] = None
         self.connect()
@@ -26,7 +30,7 @@ class MySQLRepository:
                 database=self.database
             )
             if self.conn.is_connected():
-                print("✅ Connected to MySQL")
+                print("Connected to MySQL")
         except Error as e:
             raise ConnectionError(f"Error connecting to MySQL: {e}")
 

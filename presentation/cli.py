@@ -28,6 +28,11 @@ def menu():
         elif choice == "2":
             print("\n--- DAFTAR MAHASISWA ---")
             mahasiswa_list = service.get_all()
+
+            if not mahasiswa_list:
+                print("📭 Data mahasiswa kosong")
+                continue
+            
             if mahasiswa_list:
 
                 table_data = []
