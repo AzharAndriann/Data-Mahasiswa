@@ -1,6 +1,7 @@
 from application.mahasiswa_service import MahasiswaService
 from domain.mahasiswa import Mahasiswa
 from infrastructure.mysql_repository import MySQLRepository
+from tabulate import tabulate
 
 def menu():
     repo = MySQLRepository()
@@ -21,12 +22,35 @@ def menu():
             nim = input("NIM: ").strip()
             jurusan = input("Jurusan: ").strip()
             angkatan = int(input("Angkatan: ").strip())
-            service.create(Mahasiswa(nama, nim, jurusan, angkatan))
+            service.create(Mahasiswa(0, nama, nim, jurusan, angkatan))
             print("✅ Mahasiswa berhasil ditambahkan")
 
         elif choice == "2":
-            for m in service.get_all():
-                print(m)
+            print("\n--- DAFTAR MAHASISWA ---")
+            mahasiswa_list = service.get_all()
+            if mahasiswa_list:
+
+                table_data = []
+                for m in mahasiswa_list:
+
+                    table_data.append([
+                        m.id, 
+                        m.nama, 
+                        m.nim, 
+                        m.jurusan, 
+                        m.angkatan
+                    ])
+                
+                # Header tabel
+                headers = ["ID", "Nama", "NIM", "Jurusan", "Angkatan"]
+                
+                # Menampilkan tabel
+                print(tabulate(table_data, headers=headers, tablefmt="grid"))
+                
+                # Menampilkan jumlah data
+                print(f"\n📊 Total: {len(mahasiswa_list)} mahasiswa")
+            else:
+                print("📭 Tidak ada data mahasiswa")
 
         elif choice == "3":
             nim = input("NIM mahasiswa yang ingin diupdate: ").strip()
@@ -36,7 +60,7 @@ def menu():
             nama = input("Nama baru: ").strip()
             jurusan = input("Jurusan baru: ").strip()
             angkatan = int(input("Angkatan baru: ").strip())
-            service.update(nim, Mahasiswa(nama, nim, jurusan, angkatan))
+            service.update(nim, Mahasiswa(0, nama, nim, jurusan, angkatan))
             print("✅ Mahasiswa berhasil diupdate")
 
         elif choice == "4":
@@ -44,7 +68,7 @@ def menu():
             service.delete(nim)
             print("✅ Mahasiswa berhasil dihapus")
 
-        elif choice == "5":
+        elif choice == "5" or choice.lower() == "exit":
             repo.close()
             break
 
