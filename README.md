@@ -1,19 +1,27 @@
-# Mahasiswa App - CLI CRUD Python + MySQL
+# Data Mahasiswa App (Python + MySQL CRUD)  
 
-Project ini adalah **CRUD Mahasiswa** menggunakan **Python** dan **MySQL** dengan **CLI interaktif**.  
-Menggunakan **Clean Architecture** (Domain / Application / Infrastructure / Presentation) dan `.env` untuk konfigurasi database.
+[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)  
 
----
-
-## Fitur
-
-- Tambah mahasiswa
-- Lihat semua mahasiswa
-- Update data mahasiswa
-- Hapus mahasiswa
-- Database & table otomatis dibuat saat pertama kali dijalankan
 
 ---
 
-## Struktur Project
+## 💻 Feature
 
+- Tambah mahasiswa  
+- Lihat semua mahasiswa  
+- Update mahasiswa  
+- Hapus mahasiswa  
+- Auto create database & table  
+- CLI interaktif  
+- Konfigurasi database via `.env`  
+
+---
+
+## 📂 How to Project Setup
+
+- git clone https://github.com/AzharAndriann/Data-Mahasiswa.git
+- cd Data-Mahasiswa
+- pip install -r requirements.txt
+- python infrastructure/db_setup.py
+- python main.py
