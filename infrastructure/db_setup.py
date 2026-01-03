@@ -14,7 +14,7 @@ def create_database_and_table():
     try:
         conn = mysql.connector.connect(
             host=DB_HOST,
-            port=3308,
+            port=3306,
             user=DB_USER,
             password=DB_PASSWORD
         )
