@@ -7,7 +7,7 @@ load_dotenv()
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_USER = os.getenv("DB_USER", "root")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME", "mahasiswa_app")
 
 def create_database_and_table():
@@ -19,7 +19,7 @@ def create_database_and_table():
         )
         cursor = conn.cursor()
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
-        print(f"Database `{DB_NAME}` ready")
+        print(f"✅ Database `{DB_NAME}` ready")
 
         cursor.execute(f"USE {DB_NAME}")
 
@@ -33,7 +33,7 @@ def create_database_and_table():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         """)
-        print("Table `mahasiswa` ready")
+        print("✅ Table `mahasiswa` ready")
 
         cursor.close()
         conn.close()

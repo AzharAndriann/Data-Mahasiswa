@@ -4,7 +4,6 @@ from typing import Optional
 
 @dataclass
 class Mahasiswa:
-    id: Optional[int]
     nama: str
     nim: str
     jurusan: str
