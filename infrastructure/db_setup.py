@@ -9,12 +9,13 @@ DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_USER = os.getenv("DB_USER", "root")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_NAME = os.getenv("DB_NAME", "mahasiswa_app")
+DB_PORT = int(os.getenv("DB_PORT", 3306))
 
 def create_database_and_table():
     try:
         conn = mysql.connector.connect(
             host=DB_HOST,
-            port=3306,
+            port=DB_PORT,
             user=DB_USER,
             password=DB_PASSWORD
         )
